@@ -1,8 +1,9 @@
-import Image from 'next/image';
+'use client';
 import Link from 'next/link';
-import { UserButton } from '@clerk/nextjs';
+import { UserButton, useUser } from '@clerk/nextjs';
 
 export default function Header() {
+  const { isSignedIn } = useUser();
   return (
     <div className='p-10 flex justify-evenly items-center'>
       <Link href='/'>
@@ -11,19 +12,25 @@ export default function Header() {
         </div>
       </Link>
       <nav>
-        <ul className='flex gap-5'>
-          <li>
-            <a href='/sign-in'>Sign In</a>
-          </li>
-          <li>
-            <a href='/sign-up'>Register</a>
-          </li>
-        </ul>
-        <UserButton
-          afterSignOutUrl='/'
-          signInUrl={`${process.env.BASE_URL}/sign-in`}
-          showName={true}
-        />
+        {isSignedIn ? (
+          <>
+            <a href='/dash'>Dashboard</a>
+            <UserButton
+              afterSignOutUrl='/'
+              signInUrl={`${process.env.BASE_URL}/sign-in`}
+              showName={true}
+            />
+          </>
+        ) : (
+          <ul className='flex gap-5'>
+            <li>
+              <a href='/sign-in'>Sign In</a>
+            </li>
+            <li>
+              <a href='/sign-up'>Register</a>
+            </li>
+          </ul>
+        )}
       </nav>
     </div>
   );

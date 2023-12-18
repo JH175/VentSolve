@@ -21,7 +21,7 @@ export default function PostPreview(props: PostPreviewProps) {
   }
   return (
     <Link href='/post/123123'>
-      <div className='flex p-2 border rounded-md w-[30rem] justify-between bg-white drop-shadow-md hover:scale-110 duration-500'>
+      <div className='flex p-2 border rounded-md w-[30rem] justify-between bg-white drop-shadow-md hover:scale-110 duration-500 gap-2'>
         <div className='flex items-center'>
           <p>{props.title}</p>
         </div>
