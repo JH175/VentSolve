@@ -1,9 +1,9 @@
 'use client';
 import Link from 'next/link';
-import { UserButton, useUser } from '@clerk/nextjs';
+import { useState } from 'react';
 
 export default function Header() {
-  const { isSignedIn } = useUser();
+  const [isSignedIn, setIsSignedIn] = useState(false);
   return (
     <div className='p-10 flex justify-evenly items-center'>
       <Link href='/'>
@@ -17,13 +17,7 @@ export default function Header() {
             <li className='hover:text-orange-600'>
               <a href='/dash'>Dashboard</a>
             </li>
-            <li>
-              <UserButton
-                afterSignOutUrl='/'
-                signInUrl={`${process.env.BASE_URL}/sign-in`}
-                showName={true}
-              />
-            </li>
+            <li>User Button</li>
           </ul>
         ) : (
           <ul className='flex gap-5'>
