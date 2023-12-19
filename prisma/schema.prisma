@@ -3,22 +3,55 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  name     String?
+  posts    Post[]
+  comments Comment[]
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
+  published Boolean   @default(false)
+  author    User      @relation(fields: [authorId], references: [id])
   authorId  Int
+  comments  Comment[]
+  tags      Tag[]
+  likes     Int
+  isSolved  Boolean
+  score     Int
+  votes     Int
+
+  @@index([authorId])
+}
+
+model Comment {
+  id         Int     @id @default(autoincrement())
+  content    String?
+  author     User    @relation(fields: [authorId], references: [id])
+  authorId   Int
+  Post       Post?   @relation(fields: [postId], references: [id])
+  postId     Int?
+  isSolution Boolean
+  likes      Int
+
+  @@index([authorId])
+  @@index([postId])
+}
+
+model Tag {
+  id     Int     @id @default(autoincrement())
+  name   String?
+  Post   Post?   @relation(fields: [postId], references: [id])
+  postId Int?
+
+  @@index([postId])
 }

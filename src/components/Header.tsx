@@ -13,14 +13,18 @@ export default function Header() {
       </Link>
       <nav>
         {isSignedIn ? (
-          <>
-            <a href='/dash'>Dashboard</a>
-            <UserButton
-              afterSignOutUrl='/'
-              signInUrl={`${process.env.BASE_URL}/sign-in`}
-              showName={true}
-            />
-          </>
+          <ul className='flex gap-5 items-center'>
+            <li className='hover:text-orange-600'>
+              <a href='/dash'>Dashboard</a>
+            </li>
+            <li>
+              <UserButton
+                afterSignOutUrl='/'
+                signInUrl={`${process.env.BASE_URL}/sign-in`}
+                showName={true}
+              />
+            </li>
+          </ul>
         ) : (
           <ul className='flex gap-5'>
             <li className='hover:text-orange-600'>

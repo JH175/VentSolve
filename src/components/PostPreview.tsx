@@ -5,6 +5,7 @@ type PostPreviewProps = {
   score: number;
   votes: number;
   tags: string[];
+  bounty: boolean;
 };
 
 export default function PostPreview(props: PostPreviewProps) {
@@ -24,12 +25,14 @@ export default function PostPreview(props: PostPreviewProps) {
     <Link href='/post/123123'>
       <div className='p-2 border rounded-md w-[30rem] bg-white drop-shadow-md hover:scale-110 duration-500'>
         <div className='flex  justify-between gap-2'>
-          <div className='flex items-center'>
+          <div className='flex'>
             <p>{props.title}</p>
           </div>
-          <div className='flex items-center'>
-            {props.votes}
-            <span className='text-2xl'>{emoji}</span>
+          <div className='flex flex-col gap-1'>
+            <div className='flex justify-center items-center p-1'>
+              <div className='text-xl'>{emoji}</div>
+              <div> {props.score}</div>
+            </div>
           </div>
         </div>
         <span className='text-teal-600'>
