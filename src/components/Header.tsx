@@ -8,7 +8,7 @@ export default function Header() {
     <div className='p-10 flex justify-evenly items-center'>
       <Link href='/'>
         <div className='flex items-center'>
-          <h1 className='text-2xl'>VentSolve</h1>
+          <h1 className='text-2xl text-orange-500'>VentSolve</h1>
         </div>
       </Link>
       <nav>
@@ -23,10 +23,10 @@ export default function Header() {
           </>
         ) : (
           <ul className='flex gap-5'>
-            <li>
+            <li className='hover:text-orange-600'>
               <a href='/sign-in'>Sign In</a>
             </li>
-            <li>
+            <li className='hover:text-orange-600'>
               <a href='/sign-up'>Register</a>
             </li>
           </ul>

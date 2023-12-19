@@ -6,7 +6,7 @@ export default function SignInPage() {
       <SignIn
         appearance={{
           elements: {
-            formButtonPrimary: 'bg-green-500 hover:bg-green-400',
+            formButtonPrimary: 'bg-orange-500 hover:bg-orange-600',
           },
         }}
       />
