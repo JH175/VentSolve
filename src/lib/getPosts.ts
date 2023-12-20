@@ -1,4 +1,4 @@
-import { db } from './db';
+import db from './db';
 
 export const getPosts = async () => {
   const data = await db.post.findMany();

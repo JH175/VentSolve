@@ -1,9 +1,9 @@
-'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { auth } from '@/auth';
 
-export default function Header() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+export default async function Header() {
+  const session = await auth();
+
   return (
     <div className='flex items-center justify-evenly p-10'>
       <Link href='/'>
@@ -12,7 +12,7 @@ export default function Header() {
         </div>
       </Link>
       <nav>
-        {isSignedIn ? (
+        {session ? (
           <ul className='flex items-center gap-5'>
             <li className='hover:text-orange-600'>
               <a href='/dash'>Dashboard</a>
@@ -22,10 +22,10 @@ export default function Header() {
         ) : (
           <ul className='flex gap-5'>
             <li className='hover:text-orange-600'>
-              <a href='/sign-in'>Sign In</a>
+              <a href='/signin'>Sign In</a>
             </li>
             <li className='hover:text-orange-600'>
-              <a href='/sign-up'>Register</a>
+              <a href='/signup'>Register</a>
             </li>
           </ul>
         )}
