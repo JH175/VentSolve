@@ -1,9 +1,9 @@
 import PostPreview from '@/components/PostPreview';
 import Link from 'next/link';
-import prisma from '@/lib/prisma';
+import { db } from '@/lib/db';
 
 export default async function Home() {
-  const posts = await prisma.post.findMany();
+  const posts = await db.post.findMany();
   return (
     <div className='flex flex-col justify-center items-center gap-10'>
       <h2 className='text-2xl'>Join the global fight against pain points.</h2>
