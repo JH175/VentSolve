@@ -1,7 +1,7 @@
 export default function PostPage() {
   return (
-    <div className='flex flex-col justify-center items-center gap-5'>
-      <div className='border rounded-md p-10 w-[70vw] flex gap-5 flex-col'>
+    <div className='flex flex-col items-center justify-center gap-5'>
+      <div className='flex w-[70vw] flex-col gap-5 rounded-md border p-10'>
         <div>
           <h2 className='text-xl'>
             Manual workflow, multiple forms, and no reliable tracking for
@@ -15,7 +15,7 @@ export default function PostPage() {
           dignissimos ipsa porro.
         </div>
       </div>
-      <div className='border rounded-md p-10 w-[70vw] flex gap-5 flex-col'>
+      <div className='flex w-[70vw] flex-col gap-5 rounded-md border p-10'>
         <div>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
           fugit nihil ipsam quam aut animi ipsa maxime error dolorem alias!

@@ -2,7 +2,7 @@ import PostPreview from '@/components/PostPreview';
 
 export default function Dashboard() {
   return (
-    <div className='p-10 flex flex-col gap-2 justify-center items-center'>
+    <div className='flex flex-col items-center justify-center gap-2 p-10'>
       <PostPreview
         title='Filling out an application after submitting a resume with the same information.'
         score={100}

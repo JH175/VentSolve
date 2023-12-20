@@ -1,13 +1,13 @@
 import PostPreview from '@/components/PostPreview';
 import Link from 'next/link';
-import { db } from '@/lib/db';
+import { getPosts } from '@/lib/getPosts';
 
 export default async function Home() {
-  const posts = await db.post.findMany();
+  const posts = await getPosts();
   return (
-    <div className='flex flex-col justify-center items-center gap-10'>
+    <div className='flex flex-col items-center justify-center gap-10'>
       <h2 className='text-2xl'>Join the global fight against pain points.</h2>
-      <div className='p-10 flex flex-col gap-2 justify-center items-center'>
+      <div className='flex flex-col items-center justify-center gap-2 p-10'>
         {posts?.map((post: any) => (
           <PostPreview
             key={post.id}
@@ -21,7 +21,7 @@ export default async function Home() {
       </div>
       <Link
         href='/posts'
-        className='text-orange-500 hover:text-orange-600 text-lg'
+        className='text-lg text-orange-500 hover:text-orange-600'
       >
         See more posts...
       </Link>

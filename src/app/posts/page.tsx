@@ -1,19 +1,12 @@
 import PostPreview from '@/components/PostPreview';
+import { getPosts } from '@/lib/getPosts';
 import { Post } from '@prisma/client';
 
-const getPosts = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/posts/api`, {
-    method: 'GET',
-  });
-  const data = await res.json();
-  return data;
-};
-
 export default async function Posts() {
-  const { posts } = await getPosts();
+  const posts = await getPosts();
   return (
-    <div className='p-10 flex flex-col gap-2 justify-center items-center'>
-      {posts.map((post: Post) => (
+    <div className='flex flex-col items-center justify-center gap-2 p-10'>
+      {posts?.map((post: Post) => (
         <PostPreview
           key={post.id}
           title={post.title}

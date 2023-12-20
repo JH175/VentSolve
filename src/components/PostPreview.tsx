@@ -23,13 +23,13 @@ export default function PostPreview(props: PostPreviewProps) {
   }
   return (
     <Link href='/post/123123'>
-      <div className='p-2 border rounded-md w-[30rem] bg-white drop-shadow-md hover:scale-110 duration-500'>
+      <div className='w-[30rem] rounded-md border bg-white p-2 drop-shadow-md duration-500 hover:scale-110'>
         <div className='flex  justify-between gap-2'>
           <div className='flex'>
             <p>{props.title}</p>
           </div>
           <div className='flex flex-col gap-1'>
-            <div className='flex justify-center items-center p-1'>
+            <div className='flex items-center justify-center p-1'>
               <div className='text-xl'>{emoji}</div>
               <div> {props.score}</div>
             </div>

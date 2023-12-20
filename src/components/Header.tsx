@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function Header() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   return (
-    <div className='p-10 flex justify-evenly items-center'>
+    <div className='flex items-center justify-evenly p-10'>
       <Link href='/'>
         <div className='flex items-center'>
           <h1 className='text-2xl text-orange-500'>VentSolve</h1>
@@ -13,7 +13,7 @@ export default function Header() {
       </Link>
       <nav>
         {isSignedIn ? (
-          <ul className='flex gap-5 items-center'>
+          <ul className='flex items-center gap-5'>
             <li className='hover:text-orange-600'>
               <a href='/dash'>Dashboard</a>
             </li>
