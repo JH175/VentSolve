@@ -2,7 +2,7 @@ import PostPreview from '@/components/PostPreview';
 import { Post } from '@prisma/client';
 
 const getPosts = async () => {
-  const res = await fetch('http://localhost:3000/posts/api', {
+  const res = await fetch(`${process.env.BASE_URL}/posts/api`, {
     method: 'GET',
   });
   const data = await res.json();
