@@ -6,6 +6,7 @@ import TwitterProviderLogo from '@/assets/images/TwitterProvider.png';
 import AppleProviderLogo from '@/assets/images/AppleProvider.png';
 import LinkedInProviderLogo from '@/assets/images/LinkedInProvider.png';
 import FacebookProviderLogo from '@/assets/images/FacebookProvider.png';
+import GitHubProviderLogo from '@/assets/images/GitHubProvider.png';
 import ProviderButton from '../_components/ProviderButton';
 import { signIn } from 'next-auth/react';
 
@@ -19,36 +20,41 @@ export default function SignInPage() {
         </p>
         <p className='text-center'>Sign in with:</p>
         <div className='flex gap-2'>
-          <ProviderButton>
+          <ProviderButton provider='github'>
             <Image
               src={GoogleProviderLogo}
               alt='Sign in with Google.'
               width={200}
             />
           </ProviderButton>
-          <div onClick={() => signIn('github')}>
-            <ProviderButton>
-              <Image
-                src={TwitterProviderLogo}
-                alt='Sign in with Twitter.'
-                width={20}
-              />
-            </ProviderButton>
-          </div>
-          <ProviderButton>
+          <ProviderButton provider='github'>
+            <Image
+              src={TwitterProviderLogo}
+              alt='Sign in with Twitter.'
+              width={20}
+            />
+          </ProviderButton>
+          <ProviderButton provider='github'>
             <Image src={AppleProviderLogo} alt='Sign in with Apple.' />
           </ProviderButton>
-          <ProviderButton>
+          <ProviderButton provider='github'>
             <Image
               src={LinkedInProviderLogo}
-              alt='Sign in with Apple.'
+              alt='Sign in with LinkedIn.'
               width={30}
             />
           </ProviderButton>
-          <ProviderButton>
+          <ProviderButton provider='github'>
             <Image
               src={FacebookProviderLogo}
-              alt='Sign in with Apple.'
+              alt='Sign in with Facebook.'
+              width={30}
+            />
+          </ProviderButton>
+          <ProviderButton provider='github'>
+            <Image
+              src={GitHubProviderLogo}
+              alt='Sign in with GitHub.'
               width={30}
             />
           </ProviderButton>

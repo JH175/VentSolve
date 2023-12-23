@@ -6,7 +6,9 @@ export default async function Home() {
   const posts = await getPosts();
   return (
     <div className='flex flex-col items-center justify-center gap-10'>
-      <h2 className='text-2xl'>Join the global fight against pain points.</h2>
+      <h2 className='text-2xl'>
+        Vent problems and find solutions in the global war on pain points.
+      </h2>
       <div className='flex flex-col items-center justify-center gap-2 p-10'>
         {posts?.map((post: any) => (
           <PostPreview

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { auth } from '@/auth';
+import SignOut from './SignOut';
 
 export default async function Header() {
   const session = await auth();
@@ -17,7 +18,9 @@ export default async function Header() {
             <li className='hover:text-orange-600'>
               <a href='/dash'>Dashboard</a>
             </li>
-            <li>User Button</li>
+            <li>
+              <SignOut />
+            </li>
           </ul>
         ) : (
           <ul className='flex gap-5'>
